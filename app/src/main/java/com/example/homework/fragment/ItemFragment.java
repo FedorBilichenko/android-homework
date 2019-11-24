@@ -27,13 +27,16 @@ public class ItemFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         String number = "0";
         int color = Color.BLUE;
         Bundle arguments = getArguments();
+
         if (arguments != null) {
             number = arguments.getString(NUMBER_ITEM);
             color = arguments.getInt(COLOR_ITEM);
         }
+
         TextView textView = view.findViewById(R.id.fragment_item_text);
         textView.setText(number);
         view.setBackgroundColor(color);
@@ -42,9 +45,11 @@ public class ItemFragment extends BaseFragment {
     public static ItemFragment newInstance(int number, int color) {
         ItemFragment fragment = new ItemFragment();
         Bundle bundle = new Bundle();
+
         bundle.putString(NUMBER_ITEM, String.valueOf(number));
         bundle.putInt(COLOR_ITEM, color);
         fragment.setArguments(bundle);
+
         return fragment;
     }
 }
